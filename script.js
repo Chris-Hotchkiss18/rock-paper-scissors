@@ -6,11 +6,11 @@ function computerChoice() {
   return compChoice[Math.floor(Math.random() * compChoice.length)];
 }
 
-//Player input choice
-function playerChoice() {
-  let choice = prompt("Pick Rock / Paper / Scissors");
-  return choice.toLowerCase();
-}
+// Player input choice
+// function playerChoice() {
+//   let choice = prompt("Pick Rock / Paper / Scissors");
+//   return choice.toLowerCase();
+// }
 
 //Play round & keep score
 let playerScore = 0;
@@ -21,9 +21,9 @@ function playRound(answer1, answer2) {
     return "Its a tie! You both picked " + answer1;
   }
   if (
-    (answer1 == "rock" && answer2 == "scissors") ||
-    (answer1 == "scissors" && answer2 == "paper") ||
-    (answer1 == "paper" && answer2 == "rock")
+    (answer1 === "rock" && answer2 === "scissors") ||
+    (answer1 === "scissors" && answer2 === "paper") ||
+    (answer1 === "paper" && answer2 === "rock")
   ) {
     playerScore++;
     return "You win! " + answer1 + " beats " + answer2;
