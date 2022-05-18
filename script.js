@@ -6,11 +6,22 @@ function computerChoice() {
   return compChoice[Math.floor(Math.random() * compChoice.length)];
 }
 
-// Player input choice
-// function playerChoice() {
-//   let choice = prompt("Pick Rock / Paper / Scissors");
-//   return choice.toLowerCase();
-// }
+// Player input choice & play round
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+rock.addEventListener("click", () => {
+  playRound("rock", computerChoice());
+});
+
+paper.addEventListener("click", () => {
+  return "paper";
+});
+
+scissors.addEventListener("click", () => {
+  return "scissors";
+});
 
 //Play round & keep score
 let playerScore = 0;

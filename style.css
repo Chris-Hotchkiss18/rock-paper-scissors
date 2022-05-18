@@ -24,7 +24,7 @@ body {
 
 .score {
   display: flex;
-  margin: 25px 75px;
+  margin: 25px 50px;
   justify-content: center;
   gap: 150px;
 }
@@ -35,6 +35,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: rgb(15, 226, 233);
+  border: 2px solid rgb(7, 123, 218);
+  padding: 10px 20px;
 }
 
 .buttons {
@@ -54,8 +57,7 @@ body {
 
 .buttons button {
   background: rgb(7, 123, 218);
-
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 1.6);
 }
 
