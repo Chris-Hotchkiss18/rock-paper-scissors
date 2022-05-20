@@ -68,7 +68,6 @@ function playRound(answer1, answer2) {
     (answer2 === "scissors" && answer1 === "paper") ||
     (answer2 === "paper" && answer1 === "rock")
   ) {
-    "Its a tie! You both picked " + answer1;
     computerScore++;
     document.getElementById("computerResult").innerHTML = +computerScore;
     content.textContent = "You lose! " + answer2 + " beats " + answer1;
