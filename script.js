@@ -44,10 +44,12 @@ content.classList.add("content");
 
 function playRound(answer1, answer2) {
   if (answer1 === answer2) {
+    //its a tie
     content.textContent = "Its a tie! You both picked " + answer1;
     logContainer.appendChild(content);
   }
   if (
+    //player wins
     (answer1 === "rock" && answer2 === "scissors") ||
     (answer1 === "scissors" && answer2 === "paper") ||
     (answer1 === "paper" && answer2 === "rock")
@@ -61,6 +63,7 @@ function playRound(answer1, answer2) {
       logContainer.appendChild(content);
     }
   } else if (
+    //computer wins
     (answer2 === "rock" && answer1 === "scissors") ||
     (answer2 === "scissors" && answer1 === "paper") ||
     (answer2 === "paper" && answer1 === "rock")
