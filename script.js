@@ -12,24 +12,34 @@ const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
 rock.addEventListener("click", () => {
-  playRound("rock", computerChoice());
+  if (playerScore < 5 && computerScore < 5) {
+    playRound("rock", computerChoice());
+  }
 });
 
 paper.addEventListener("click", () => {
-  return "paper";
+  if (playerScore < 5 && computerScore < 5) {
+    playRound("paper", computerChoice());
+  }
 });
 
 scissors.addEventListener("click", () => {
-  return "scissors";
+  if (playerScore < 5 && computerScore < 5) {
+    playRound("scissors", computerChoice());
+  }
 });
 
-//Play round & keep score
+//Scores
 let playerScore = 0;
-let computerScore = 0;
+document.getElementById("playerResult").innerHTML = +playerScore;
 
+let computerScore = 0;
+document.getElementById("computerResult").innerHTML = +computerScore;
+
+//Play round, add score and print log
 function playRound(answer1, answer2) {
   if (answer1 === answer2) {
-    return "Its a tie! You both picked " + answer1;
+    console.log("Its a tie! You both picked " + answer1);
   }
   if (
     (answer1 === "rock" && answer2 === "scissors") ||
@@ -37,25 +47,15 @@ function playRound(answer1, answer2) {
     (answer1 === "paper" && answer2 === "rock")
   ) {
     playerScore++;
-    return "You win! " + answer1 + " beats " + answer2;
-  } else {
+    console.log("You win! " + answer1 + " beats " + answer2);
+    document.getElementById("playerResult").innerHTML = +playerScore;
+  } else if (
+    (answer2 === "rock" && answer1 === "scissors") ||
+    (answer2 === "scissors" && answer1 === "paper") ||
+    (answer2 === "paper" && answer1 === "rock")
+  ) {
     computerScore++;
-    return "You lose! " + answer2 + " beats " + answer1;
+    console.log("You lose! " + answer2 + " beats " + answer1);
+    document.getElementById("computerResult").innerHTML = +computerScore;
   }
 }
-
-//Repeat round until winner declared
-function playGame() {
-  while (playerScore < 5 && computerScore < 5) {
-    console.log(playRound(playerChoice(), computerChoice()));
-    console.log(playerScore, computerScore);
-  }
-  if (playerScore == 5) {
-    console.log("Player Wins! - Refresh to play again.");
-  }
-  if (computerScore == 5) {
-    console.log("Computer Wins! - Refresh to play again.");
-  }
-}
-
-playGame();
