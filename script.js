@@ -39,7 +39,7 @@ document.getElementById("computerResult").innerHTML = +computerScore;
 //Play round, add score and print log
 const logContainer = document.querySelector("#log");
 
-const content = document.createElement("div");
+const content = document.createElement("p");
 content.classList.add("content");
 
 function playRound(answer1, answer2) {
@@ -56,14 +56,23 @@ function playRound(answer1, answer2) {
     document.getElementById("playerResult").innerHTML = +playerScore;
     content.textContent = "You win! " + answer1 + " beats " + answer2;
     logContainer.appendChild(content);
+    if (playerScore === 5) {
+      content.textContent = "You Won! Refresh to play again";
+      logContainer.appendChild(content);
+    }
   } else if (
     (answer2 === "rock" && answer1 === "scissors") ||
     (answer2 === "scissors" && answer1 === "paper") ||
     (answer2 === "paper" && answer1 === "rock")
   ) {
+    "Its a tie! You both picked " + answer1;
     computerScore++;
     document.getElementById("computerResult").innerHTML = +computerScore;
     content.textContent = "You lose! " + answer2 + " beats " + answer1;
     logContainer.appendChild(content);
+    if (computerScore === 5) {
+      content.textContent = "You Lost! Refresh to play again";
+      logContainer.appendChild(content);
+    }
   }
 }

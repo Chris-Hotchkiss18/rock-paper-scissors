@@ -69,3 +69,7 @@ section .gameLog {
   margin-top: 50px;
   flex: 1 0 auto;
 }
+
+#log {
+  color: rgb(55, 54, 54);
+}
